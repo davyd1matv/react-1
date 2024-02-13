@@ -1,0 +1,30 @@
+.additional {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.additional__text {
+  color: #000;
+  font-size: 32px;
+  font-weight: bold;
+
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 8px;
+}
+
+.additional__info {
+  display: grid;
+  gap: 24px;
+}
+
+.additional__box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.additional__text--big {
+  font-size: 20px;
+  font-weight: bold;
+}

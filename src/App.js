@@ -5,6 +5,12 @@ import Photo from "./component/photo";
 import Price from "./component/price";
 import RoomList from "./component/room-list";
 import Description from "./component/description";
+import Property from "./component/property";
+import Amenities from "./component/amenities";
+import Contact from "./component/contact";
+import Additional from "./component/additional";
+import Guest from "./component/guest";
+import Nearby from "./component/nearby";
 
 function App() {
   const data = {
@@ -100,7 +106,7 @@ function App() {
         "Public buses and taxis available within walking distance.",
       host_languages: ["English", "Spanish"],
       special_offers: "10% discount for bookings of 7 nights or more.",
-      "check-in_instructions":
+      instructions:
         "Check-in time is 3:00 PM. Please contact us in advance with your estimated arrival time.",
     },
 
@@ -177,8 +183,51 @@ function App() {
         checkout={data.availability.checkout_date}
       />
       <RoomList list={data.roomTypes} />
+
       <Description title="Опис" children={data.description} />
+
+      <Property
+        guests={data.property_details.guests}
+        bedrooms={data.property_details.bedrooms}
+        beds={data.property_details.beds}
+        baths={data.property_details.baths}
+      />
       <Description title="Про сусідів" children={data.neighborhood_info} />
+      <Amenities
+        // list2={data.amenities}
+        hasPool={data.amenities.hasPool}
+        hasGym={data.amenities.hasGym}
+        hasFreeBreakfast={data.amenities.hasFreeBreakfast}
+        hasFreeWiFi={data.amenities.hasFreeWiFi}
+        hasParking={data.amenities.hasParking}
+        hasPetsAllowed={data.amenities.hasPetsAllowed}
+        hasAirportShuttle={data.amenities.hasAirportShuttle}
+        hasConciergeService={data.amenities.hasConciergeService}
+        hasRoomService={data.amenities.hasRoomService}
+        hasChildFriendly={data.amenities.hasChildFriendly}
+      />
+
+      <Contact
+        name={data.contact_info.name}
+        image={data.contact_info.image}
+        response_rate={data.contact_info.response_rate}
+        response_time={data.contact_info.response_time}
+        info={data.contact_info.info}
+        phone={data.contact_info.phone}
+      />
+
+      <Additional
+        house_rules={data.additional_properties.house_rules}
+        canc_policu={data.additional_properties.cancellation_policy}
+        local_transport={data.additional_properties.local_transportation}
+        host_lang={data.additional_properties.host_languages}
+        special_offers={data.additional_properties.special_offers}
+        instructions={data.additional_properties.instructions}
+      />
+
+      <Guest title="Відгуки клієнтів" children={data.guestReviews} />
+
+      <Nearby title="Опис" children={data.nearbyAttractions} />
     </Page>
   );
 }
